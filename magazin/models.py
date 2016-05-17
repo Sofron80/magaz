@@ -30,6 +30,8 @@ class Tovar(models.Model):
 	img = models.ImageField(blank=True)
 	category = models.ForeignKey(Category)
 	active = models.BooleanField(default=False, verbose_name='Активность')
+	def get_url(self):
+		return '/'.join([self.category.slug,self.slug])+'.html'
 	
 	def __str__(self):
 		return self.name
@@ -43,6 +45,7 @@ class Svoistvo_tovar(models.Model):
 	name = models.CharField(max_length=200, verbose_name="Наименование свойства")
 	text = models.CharField(max_length=200, verbose_name="Свойство")
 	tovar = models.ForeignKey(Tovar)
+
 	def __str__(self):
 		return self.name
 	class Meta():

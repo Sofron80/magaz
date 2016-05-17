@@ -3,15 +3,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Главная страница</title>
+	<title>{{title}}</title>
 </head>
 <body>
 <a href="{% static '123.txt' %}">qwerfq2refgwq3r</a>
 
 
-
-
-{% for item in test%}
+{% for item in tovars%}
 <h1>{{ item.name }}</h1>
 
 <h3>{{ item.category.slug }}</h3>
@@ -19,13 +17,13 @@
 <p>{{ item.price }}</p>
 
 
-<a href="{{item.slug}}">Подробнее</a>
+<a href="{{item.get_url}}">Подробнее</a>
 	{% if item.img %}
 	<img src="{{item.img.url}}" alt="">
 	{% endif %}
+<hr>
 {% endfor %}	
 
 </body>
 </html>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed inventore, consectetur id, repudiandae qui aliquam molestias harum fugiat atque dignissimos sequi ipsum? Error sequi deserunt nam magni voluptate blanditiis perferendis fuga recusandae architecto voluptatem mollitia voluptatum harum ducimus provident laboriosam voluptates nemo quidem totam voluptatibus quod, reprehenderit minus culpa consequuntur!
