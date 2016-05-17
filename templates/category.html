@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{category.desc}}</title>
+</head>
+<body>
+<a href="/">Главная</a>
+<h1>{{category}}</h1>
+<p>{{category.text}}</p>
+<p>{{category.kwd}}</p>
+<p>{{category.desk}}</p>
+{% for item in tovar %}
+
+	<p>{{item}}</p>
+	<p>{{item.text}}</p>
+	{% if item.img %}
+	<img src="{{item.img.url}}" alt="">
+	{% endif %}
+	<hr>
+
+
+{%endfor%}
+	
+</body>
+</html>

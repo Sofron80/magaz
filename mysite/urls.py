@@ -17,9 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from magazin.views import index
+from magazin.views import index, category, tovar
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^milk/', category),
+    url(r'^category/(?P<cat_slug>[\w-]+)/$', category),
+    url(r'^category/(?P<cat_slug>[\w-]+)/(?P<tov_slug>[\w-]+).html', tovar),
     url(r'^$', index),
 ]
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -31,7 +32,7 @@ class Tovar(models.Model):
 	category = models.ForeignKey(Category)
 	active = models.BooleanField(default=False, verbose_name='Активность')
 	def get_url(self):
-		return '/'.join([self.category.slug,self.slug])+'.html'
+		return '/'.join([settings.BASE_URL,'category',self.category.slug,self.slug])+'.html'
 	
 	def __str__(self):
 		return self.name
