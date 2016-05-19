@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tovar, Svoistvo_tovar
+from .models import (Category, Tovar, Svoistvo_tovar, Article, News)
 # Register your models here.
 
 class SvoistvoAdmin(admin.TabularInline):
@@ -14,7 +14,14 @@ class TovarAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
 	prepopulated_fields = {"slug": ("name",)}
 
+class ArticleAdmin(admin.ModelAdmin):
+	prepopulated_fields = {"slug": ("title",)}
+
+class NewsAdmin(admin.ModelAdmin):
+	prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tovar, TovarAdmin)
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(News, NewsAdmin)

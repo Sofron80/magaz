@@ -21,7 +21,7 @@ from magazin.views import index, category, tovar
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^milk/', category),
-    url(r'^category/(?P<cat_slug>[\w-]+)/$', category),
+    url(r'^category/(?P<cat_slug>[\w-]+).html$', category, name='category'),
     url(r'^category/(?P<cat_slug>[\w-]+)/(?P<tov_slug>[\w-]+).html', tovar),
     url(r'^$', index),
 ]
